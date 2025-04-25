@@ -1,0 +1,153 @@
+---
+import TourIA from "./TourIA.astro";
+---
+
+<section id="ai-assistant" class="py-10 bg-gradient-to-b from-cyan-50 to-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-8">
+      <h2 class="text-3xl md:text-5xl font-bold text-gray-800 mb-4">
+        Tu Asistente Virtual de Viajes
+      </h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        Conoce a <span class="font-semibold text-cyan-600">TourIA</span>,
+        nuestro agente de inteligencia artificial especializado en ayudarte a
+        planificar tu próximo viaje de manera personalizada.
+      </p>
+    </div>
+
+    <div class="flex flex-col items-center">
+      <div id="tourIAVisual" class="max-w-2xl mx-auto" data-modal-open="false">
+        <TourIA showMessages={true}/>
+        </div>
+        <div class="mt-8">
+            <button
+            id="openModalBtn"
+            class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-orange-500 hover:bg-orange-600 transition-colors duration-300"
+          >
+            Probar TourIA Ahora
+          </button>
+        </div>
+    </div>
+
+    <div class="mt-16 bg-cyan-50 rounded-xl p-8 shadow-sm">
+        <div class="text-center mb-8">
+          <h3 class="text-2xl font-bold text-gray-800">
+            ¿Cómo está construido este agente de IA?
+          </h3>
+          <p class="text-gray-600 mt-2">
+            Un vistazo al stack tecnológico que hace posible la experiencia interactiva del agente.
+          </p>
+        </div>
+      
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white p-6 rounded-lg shadow-sm text-center">
+            <div
+              class="inline-flex items-center justify-center h-12 w-12 rounded-md bg-cyan-100 text-cyan-600 mb-4"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h4 class="text-lg font-medium text-gray-900 mb-2">Frontend con Astro y Tailwind</h4>
+            <p class="text-gray-600">
+              La interfaz se desarrolla usando Astro para generar páginas rápidas y eficientes, junto con TailwindCSS para estilos utilitarios y diseño responsive.
+            </p>
+          </div>
+      
+          <div class="bg-white p-6 rounded-lg shadow-sm text-center">
+            <div
+              class="inline-flex items-center justify-center h-12 w-12 rounded-md bg-cyan-100 text-cyan-600 mb-4"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
+              </svg>
+            </div>
+            <h4 class="text-lg font-medium text-gray-900 mb-2">Integración con IA</h4>
+            <p class="text-gray-600">
+              El agente se conecta directamente con la API de Gemini para generar respuestas, aprovechando el contexto del usuario y sus entradas.
+            </p>
+          </div>
+      
+          <div class="bg-white p-6 rounded-lg shadow-sm text-center">
+            <div
+              class="inline-flex items-center justify-center h-12 w-12 rounded-md bg-cyan-100 text-cyan-600 mb-4"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <h4 class="text-lg font-medium text-gray-900 mb-2">Lógica en JS Vanilla</h4>
+            <p class="text-gray-600">
+              El comportamiento del agente, incluyendo la gestión del modal y entradas del usuario, está implementado en JavaScript puro sin frameworks adicionales.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+  </div>
+</section>
+<!-- Modal -->
+<div
+  id="tourIAModal"
+  class="fixed inset-0 z-50 hidden items-center justify-center bg-black/75"
+>
+<button
+id="closeModalBtn"
+class="absolute top-12 right-12 text-black bg-cyan-100 rounded-full hover:text-cyan-700 hover:scale-105 text-3xl cursor-pointer px-1 text-center"
+>
+✕
+</button>
+  <div class="pt-16 mx-auto w-[80%] relative">
+   
+    <!-- Contenedor del componente con clase adicional -->
+    <div id="tourIAContainer" class="modal-mode">
+      <TourIA showMessages={false}/>
+    </div>
+  </div>
+</div>
+<script>
+  const openBtn = document.getElementById('openModalBtn');
+const closeBtn = document.getElementById('closeModalBtn');
+const modal = document.getElementById('tourIAModal');
+const tourIAVisual = document.getElementById('tourIAVisual');
+
+openBtn?.addEventListener('click', () => {
+  modal?.classList.remove('hidden');
+  tourIAVisual?.setAttribute('data-modal-open', 'true');
+  updateInputState();
+});
+
+closeBtn?.addEventListener('click', () => {
+  modal?.classList.add('hidden');
+  tourIAVisual?.setAttribute('data-modal-open', 'false');
+  updateInputState();
+});
+
+const getInputInsideModal = () => {
+  return modal?.querySelector('input[type="text"]');
+};
+
+const updateInputState = () => {
+  const isModalOpen = tourIAVisual?.getAttribute('data-modal-open') === 'true';
+  const touriaInput = getInputInsideModal();
+  if (touriaInput instanceof HTMLInputElement) {
+    touriaInput.disabled = !isModalOpen;
+  }
+};
+
+// Llama a la función inicialmente
+updateInputState();
+
+// Observa cambios en el atributo del modal
+const observer = new MutationObserver(updateInputState);
+
+if (tourIAVisual) {
+  observer.observe(tourIAVisual, { attributes: true, attributeFilter: ['data-modal-open'] });
+}
+</script>

@@ -1,0 +1,215 @@
+---
+const { showMessages = true } = Astro.props;
+---
+
+<div
+          class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100"
+        >
+          <div
+            class="bg-gradient-to-r from-cyan-600 to-cyan-500 text-white p-4 flex items-center justify-between"
+          >
+            <div class="flex items-center">
+              <div class="bg-white p-2 rounded-full mr-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6 text-cyan-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  ></path>
+                </svg>
+              </div>
+              <h3 class="font-medium">TourIA Asistente</h3>
+            </div>
+            <div class="flex space-x-2" id="modalIndicators">
+                <div class="h-3 w-3 rounded-full bg-green-400"></div>
+                <div class="h-3 w-3 rounded-full bg-white"></div>
+              </div>
+          </div>
+
+          <div class="p-4 h-80 overflow-y-auto bg-gray-50 border-b">
+            { showMessages && (
+<div class="flex flex-col space-y-4" id="chatMessages">
+              <!-- Mensaje del bot -->
+              <div class="flex items-start">
+                <div class="flex-shrink-0 bg-cyan-100 rounded-full p-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6 text-cyan-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="ml-3 bg-white p-3 rounded-lg shadow-sm">
+                  <p class="text-gray-800">
+                    ¡Hola! Soy TourIA, tu asistente virtual de viajes. ¿En qué
+                    puedo ayudarte hoy?
+                  </p>
+                </div>
+              </div>
+
+              <!-- Mensaje del usuario -->
+              <div class="flex items-start justify-end">
+                <div class="mr-3 bg-cyan-600 p-3 rounded-lg shadow-sm">
+                  <p class="text-white">
+                    Hola, estoy buscando un destino de playa para mis
+                    vacaciones.
+                  </p>
+                </div>
+                <div class="flex-shrink-0 bg-gray-200 rounded-full p-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6 text-gray-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Mensaje del bot -->
+              <div class="flex items-start">
+                <div class="flex-shrink-0 bg-cyan-100 rounded-full p-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6 text-cyan-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="ml-3 bg-white p-3 rounded-lg shadow-sm">
+                  <p class="text-gray-800">
+                    ¡Excelente elección! Colombia tiene hermosas playas. Te
+                    recomendaría visitar Cartagena, Santa Marta o San Andrés.
+                    ¿Prefieres un destino más turístico o algo más tranquilo?
+                  </p>
+                </div>
+              </div>
+
+              <!-- Mensaje del usuario -->
+              <div class="flex items-start justify-end">
+                <div class="mr-3 bg-cyan-600 p-3 rounded-lg shadow-sm">
+                  <p class="text-white">
+                    Prefiero algo tranquilo, pero con buenas opciones de
+                    hospedaje.
+                  </p>
+                </div>
+                <div class="flex-shrink-0 bg-gray-200 rounded-full p-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6 text-gray-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Mensaje del bot -->
+              <div class="flex items-start">
+                <div class="flex-shrink-0 bg-cyan-100 rounded-full p-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6 text-cyan-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="ml-3 bg-white p-3 rounded-lg shadow-sm">
+                  <p class="text-gray-800">
+                    En ese caso, te recomendaría Palomino o Tayrona en la costa
+                    caribeña. Ambos ofrecen playas tranquilas con excelentes
+                    opciones de hospedaje ecológico. ¿Te gustaría ver algunas
+                    opciones específicas?
+                  </p>
+                </div>
+              </div>
+            </div>
+            )}
+            
+          </div>
+
+          <div class="p-4 bg-white">
+            <div class="flex items-center">
+              <input
+              id="inputIA"
+                disabled
+                type="text"
+                placeholder="Escribe tu mensaje aquí..."
+                class="flex-1 border border-gray-300 rounded-l-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+              />
+              <button
+                class="bg-cyan-600 hover:bg-cyan-700 text-white px-6 py-3 rounded-r-lg transition-colors duration-300 flex items-center"
+              >
+                <span class="mr-2">Enviar</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 5l7 7-7 7M5 5l7 7-7 7"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <script>
+            const indicators = document.querySelector('#modalIndicators');
+if (indicators) {
+  indicators.innerHTML = `
+    <div class="h-3 w-3 rounded-full bg-white"></div>
+    <div class="h-3 w-3 rounded-full bg-red-400"></div>
+  `;
+}
+        </script>
